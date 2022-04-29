@@ -124,12 +124,6 @@ def day13():
     print('경과시간:%.3f초' % eTime)
 
 
-def day13_function(start, end):
-    if start > end:
-        start, end = end, start
-    return((end+start)*(((end+1)-start)/2))
-
-
 def day14():
     while True:
         _input = int(input("정수 n:"))
@@ -237,3 +231,153 @@ def day21():
             print(f"{_input}은 {wordList.index(_input)+1}번째에 있다.")
         else:
             print(f"{_input}은 없음.")
+
+
+def day22():
+    win = 0
+    lost = 0
+    while True:
+        _input1 = int(input("정수:"))
+        _input2 = int(input("정수:"))
+        if _input1 == 0 and _input2 == 0:
+            print(f"암산성적:{int(win/(win+lost)*100)}")
+            break
+        answer = int(input(f"{_input1}+{_input2}="))
+        if answer == _input1+_input2:
+            print("정답")
+            win += 1
+        else:
+            print(f"오답! 정답은{_input1+_input2}!")
+            lost += 1
+
+
+def day23():
+    wordList = []
+    while True:
+        _input = input("단어입력:")
+        if _input == "\n":
+            break
+        if _input in wordList:
+            print(f"{_input}은 {wordList.index(_input)+1}번째에 있다.")
+        else:
+            addinput = input(f"{_input}은 없음. 추가할까요?(y/n)")
+            if addinput == "y":
+                wordList.append(_input)
+                print(f"{_input} 추가됨.")
+
+
+def day24():
+    import time as t
+    startTime = t.time()
+    n = 100000000  # 1억
+    cnt = 0
+    for i in range(1, n+1):
+        if n % i == 0:  # n이 i로 나누어 떨어지면
+            print(i, end=',')
+            cnt += 1
+    endTime = t.time()
+    print(f"\n {cnt}개, 경과시간:{endTime-startTime}초")
+
+
+def day25():
+    import time as t
+    _input = int(input("정수 입력:"))
+    startTime = t.time()
+    divisors = []
+    divisors_back = []
+    divisors_end = []
+
+    for i in range(1, int(_input**(1/2)) + 1):
+        if (_input % i == 0):
+            divisors.append(i)
+            if (i != (_input // i)):
+                divisors_back.append(_input//i)
+
+    divisors_end = divisors + divisors_back[::-1]
+    endTime = t.time()
+    print(str(divisors_end).replace('[', '').replace(']', ''))
+    print(f"\n {len(divisors_end)}개, 경과시간:{endTime-startTime}초")
+
+
+def day26():
+    myDic = {'sky': '하늘', 'apple': '사과', 'can': '깡통', 'boat': '배',
+             'sea': '바다', 'smile': '미소', 'animal': '동물', 'park': '공원'}
+    while True:
+        _input = input("단어입력:")
+        if _input == "":
+            break
+        if _input in myDic:
+            print(f"{_input} {myDic[_input]}")
+        else:
+            print(_input+" 없음.")
+
+
+def day27():
+    import antigravity
+    import os
+    os.system("start https://youtu.be/HEMC_InYhyM")
+
+
+def day28():
+    while True:
+        _input = int(input("정수 입력:"))
+        if _input == 0:
+            break
+        if _input == 1:
+            print("소수 아님")
+        else:
+            for i in range(2, _input):
+                if _input % i == 0:
+                    print("소수 아님")
+                    break
+            else:
+                print("소수")
+
+
+def day29():
+    import math
+    import time as t
+    while True:
+        _input = int(input("정수 입력:"))
+        startTime = t.time()
+        if _input == 0:
+            break
+        if _input == 1:
+            print("소수 아님")
+        else:
+            for i in range(2, int(math.sqrt(_input)) + 1):
+                if _input % i == 0:
+                    print("소수 아님")
+                    break
+            else:
+                print("소수")
+        endTime = t.time()
+        print(f"경과시간:{endTime-startTime}초")
+
+
+def day30():
+    import math
+    import time as t
+
+    def prime(count):
+        if count == 0:
+            return(False)
+        if count == 1:
+            return(False)
+        else:
+            for i in range(2, int(math.sqrt(count)) + 1):
+                if count % i == 0:
+                    return(False)
+            else:
+                return(True)
+
+    start = input("시작수:")
+    end = input("끝수:")
+    startTime = t.time()
+    alist = list(map(prime, range(int(start), int(end)+1)))
+    endTime = t.time()
+    print(f"{alist.count(True)}")
+    print(f"경과시간:{endTime-startTime}초")
+
+
+day30()
