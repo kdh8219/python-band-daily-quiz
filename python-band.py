@@ -1,3 +1,20 @@
+def intInput(prompt: str, errorMessage: str = "Invalid input, try again") -> int:
+    """
+    :param prompt: 사용자에게 물어보는 문구
+    :param errorMessage: 사용자가 입력한 값이 올바르지 않을 때 보여주는 문구, 공백일시 출력 안함.
+    :return: 사용자가 입력한 값
+    """
+    while True:
+        try:
+            return int(input(prompt))
+        except ValueError:
+            if errorMessage != "":
+                print(errorMessage)
+            else:
+                continue
+            return(intInput(prompt, errorMessage))
+
+
 def day1():
     while True:
         a = int(input("정수 입력:"))
@@ -380,4 +397,42 @@ def day30():
     print(f"경과시간:{endTime-startTime}초")
 
 
-day30()
+def day31():
+    while True:
+        _input = int(input("층수 입력:"))
+        if _input == 0:
+            break
+        for i in range(0, _input+1):
+            print(f"{i}층 interval:{1-(1/_input)*i}초")
+        print("도착")
+
+
+def day32():
+    while True:
+
+        _input = intInput('정수:', "")
+        if _input == 0:
+            break
+        if _input == 1:
+            continue
+
+        def primeFactorization(_input: int) -> list:
+            _list = []
+            for i in range(2, _input+1):
+                while _input % i == 0:
+                    _list.append(i)
+                    _input = _input//i
+            return(_list)
+
+        _output = str(primeFactorization(_input)).replace(
+            "[", "").replace("]", "").replace(", ", "x")
+        print(_output)
+
+
+if __name__ == "__main__":
+    try:
+        date = intInput("일차 입력:", "정수만 입력하세요")
+        print(f"\n{date}일차\n\n")
+        eval(f"day{int(date)}()")
+    except KeyboardInterrupt:
+        exit()
