@@ -1,4 +1,4 @@
-def intInput(prompt: str, errorMessage: str = "Invalid input, try again") -> int:
+def intInput(prompt: str = "", errorMessage: str = "") -> int:
     """
     :param prompt: 사용자에게 물어보는 문구
     :param errorMessage: 사용자가 입력한 값이 올바르지 않을 때 보여주는 문구, 공백일시 출력 안함.
@@ -17,7 +17,7 @@ def intInput(prompt: str, errorMessage: str = "Invalid input, try again") -> int
 
 def day1():
     while True:
-        a = int(input("정수 입력:"))
+        a = intInput("정수 입력:")
         if a % 2 == 0:
             print("짝수")
         else:
@@ -45,7 +45,7 @@ def day3():
 
 def day4():
     while True:
-        a = int(input())
+        a = intInput()
         if a == 0:
             break
         for b in range(1, 1+a):
@@ -53,8 +53,8 @@ def day4():
 
 
 def day5():
-    a = int(input())
-    b = int(input())
+    a = intInput()
+    b = intInput()
     print(str(a)+","+str(b))
     b = a+b
     a = b-a
@@ -64,7 +64,7 @@ def day5():
 
 def day6():
     while True:
-        a = int(input())
+        a = intInput()
         if a == 0:
             break
         for b in range(a, 0, -1):
@@ -73,7 +73,7 @@ def day6():
 
 def day7():
     while True:
-        a = int(input("정수 입력, 0입력시 종료:"))
+        a = intInput("정수 입력, 0입력시 종료:")
         if a == 0:
             break
         if a < 0:
@@ -83,7 +83,7 @@ def day7():
 
 def day8():
     while True:
-        a = int(input("별의 개수:"))
+        a = intInput("별의 개수:")
         if a == 0:
             break
         for i in range(a, 0, -1):
@@ -92,7 +92,7 @@ def day8():
 
 def day9():
     while True:
-        a = int(input("정수 입력, 0입력시 종료:"))
+        a = intInput("정수 입력, 0입력시 종료:")
         if a == 0:
             break
         a = a**2
@@ -102,7 +102,7 @@ def day9():
 
 def day10():
     while True:
-        a = int(input("줄 수:"))
+        a = intInput("줄 수:")
         if a == 0:
             break
         for i in range(a, 0, -1):
@@ -110,8 +110,8 @@ def day10():
 
 
 def day11():
-    start = int(input("시작수:"))
-    end = int(input("끝수:"))
+    start = intInput("시작수:")
+    end = intInput("끝수:")
     sum = 0
     for i in range(start, end+1):
         sum += i
@@ -143,7 +143,7 @@ def day13():
 
 def day14():
     while True:
-        _input = int(input("정수 n:"))
+        _input = intInput("정수 n:")
         if _input == 0:
             break
         sum = 0
@@ -155,7 +155,7 @@ def day14():
 
 def day15():
     while True:
-        _input = int(input("층수 n:"))
+        _input = intInput("층수 n:")
         nm = 1
         if _input == 0:
             break
@@ -170,7 +170,7 @@ def day15():
 
 def day16():
     while True:
-        _input = int(input("정수 n:"))
+        _input = intInput("정수 n:")
         if _input == 0:
             break
         odd = 0
@@ -187,7 +187,7 @@ def day16():
 
 def day17():
     while True:
-        _input = int(input("층수 n:"))
+        _input = intInput("층수 n:")
         nm = 1
         if _input == 0:
             break
@@ -204,7 +204,7 @@ def day17():
 
 def day18():
     while True:
-        _input = int(input("정수:"))
+        _input = intInput("정수:")
         if _input == 0:
             break
         list = []
@@ -254,8 +254,8 @@ def day22():
     win = 0
     lost = 0
     while True:
-        _input1 = int(input("정수:"))
-        _input2 = int(input("정수:"))
+        _input1 = intInput("정수:")
+        _input2 = intInput("정수:")
         if _input1 == 0 and _input2 == 0:
             print(f"암산성적:{int(win/(win+lost)*100)}")
             break
@@ -298,7 +298,7 @@ def day24():
 
 def day25():
     import time as t
-    _input = int(input("정수 입력:"))
+    _input = intInput("정수 입력:")
     startTime = t.time()
     divisors = []
     divisors_back = []
@@ -337,7 +337,7 @@ def day27():
 
 def day28():
     while True:
-        _input = int(input("정수 입력:"))
+        _input = intInput("정수 입력:")
         if _input == 0:
             break
         if _input == 1:
@@ -355,7 +355,7 @@ def day29():
     import math
     import time as t
     while True:
-        _input = int(input("정수 입력:"))
+        _input = intInput("정수 입력:")
         startTime = t.time()
         if _input == 0:
             break
@@ -399,7 +399,7 @@ def day30():
 
 def day31():
     while True:
-        _input = int(input("층수 입력:"))
+        _input = intInput("층수 입력:")
         if _input == 0:
             break
         for i in range(0, _input+1):
@@ -427,6 +427,77 @@ def day32():
         _output = str(primeFactorization(_input)).replace(
             "[", "").replace("]", "").replace(", ", "x")
         print(_output)
+
+
+def day33():
+    from time import time
+
+    text = 'Explicit is better than implicit.'
+    print(f">{text}")
+    startTime = time()
+    _input = input(">")
+    while _input != text:
+        print("오타가 있습니다.")
+        _input = input(">")
+    endTime = time()
+    print(f"{(len(text)/(endTime-startTime))*60}타/분")
+
+
+def day34():
+    while True:
+        _input = intInput('정수:', "")
+        if _input == 0:
+            break
+        if _input == 1:
+            continue
+
+        def primeFactorization(_input: int) -> dict:
+            _list = {}
+            for i in range(2, _input+1):
+                while _input % i == 0:
+                    if i in _list.keys():
+                        _list[i] += 1
+                    else:
+                        _list[i] = 1
+                    _input = _input//i
+            return(_list)
+
+        _output = primeFactorization(_input)
+        for count, (number, up) in enumerate(_output.items()):
+            if count+1 != len(_output):
+                o = (f"{number}^{up}x" if up != 1 else f"{number}x")
+            else:
+                o = (f"{number}^{up}" if up != 1 else f"{number}")
+            print(o, end="")
+        print()
+
+
+def day35():
+    from time import time
+
+    texts = ['Now is better than never.',
+             'Life is too short, you need python.',
+             'Happy python']
+    for text in texts:
+        print(f">{text}")
+        startTime = time()
+        _input = input(">")
+        while _input != text:
+            print("오타가 있습니다.")
+            _input = input(">")
+        endTime = time()
+        print(f"{(len(text)/(endTime-startTime))*60}타/분")
+
+
+def day36():
+    nameList = ['김', '이', '박', '최', '정', '강', '조', '윤', '장', '임']
+    List = [95, 73, 82, 83, 64, 89, 77, 48, 74, 99]
+    _list = {}
+    for i in range(len(nameList)):
+        _list[nameList[i]] = List[i]
+    _list = sorted(_list.items())
+    for name, score in _list:
+        print(f"{name} {score}")
 
 
 if __name__ == "__main__":
