@@ -532,6 +532,98 @@ def day38():
             print("평년")
 
 
+def day39():
+    while True:
+        used = intInput("사용량(kw) ")
+        pay = 0
+        if used == 0:
+            print("Are you alive?")
+            break
+        for i in range(50):
+            if used == 0:
+                break
+            pay += 30
+            used += -1
+        for i in range(50):
+            if used == 0:
+                break
+            pay += 80
+            used += -1
+        while used != 0:
+            pay += 120
+            used += -1
+        print(f"{pay} 원")
+
+
+def day40():
+    # (n(n+1)/2)
+    while True:
+        _input = intInput("n : ")
+        if _input == 0:
+            print("Program terminated!")
+            break
+        n = 0
+        for i in range(1, _input+1):
+            n += (i*(i+1)/2)
+        print(int(n))
+
+
+def day41():
+    while True:
+        _input = intInput("n : ")
+        if _input == 0:
+            break
+        n = 0
+        for i in range(1, _input+1):
+            print(n, end="")
+            if i % 2 != 0:
+                n += i
+                print(f" + {i} = n")
+            else:
+                n += -1*i
+                print(f" - {i} = n")
+        print("합계 :", n)
+
+
+def day42():
+    while True:
+        _input = intInput("n:")
+        if _input == 0:
+            break
+        odd = 0
+        even = 0
+        for i in range(1, _input+1):
+            if i % 2 == 1:
+                odd += i
+            else:
+                even += i
+        print(f"짝수합 : {even}\n홀수합 : {odd}\n합계 : {odd}-{even}={odd-even}")
+
+
+def day43():
+    while True:
+        _input = intInput("n : ")
+        if _input == 0:
+            break
+        n = 0
+        sign = 1
+        for i in range(1, _input+1):
+            n += i*sign
+            print(f'sign={sign} i x sign = {i*sign}')
+            sign = -1*sign
+        print("합계 :", n)
+
+
+def day44():
+    print('1-2+3-4+5 ... n')
+    while True:
+        _input = intInput("n : ", "숫자가 아닙니다.")
+        if _input == 0:
+            break
+        print(
+            f'합계 :{int(-0.5*_input) if _input % 2 == 0 else int(-0.5*(_input-1))+_input}')
+
+
 if __name__ == "__main__":
     try:
         date = intInput("일차 입력:", "정수만 입력하세요")
