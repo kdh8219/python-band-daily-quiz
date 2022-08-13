@@ -1,6 +1,3 @@
-from dataclasses import replace
-
-
 def intInput(prompt: str = "", errorMessage: str = "") -> int:
     """
     :param prompt: 사용자에게 물어보는 문구
@@ -518,6 +515,21 @@ def day37():
         del pList[pList.index(min(pList))]
         print(
             f"{i+1}차 : {sList+pList}")
+
+
+def day38():
+    while True:
+        _input = intInput("연도:")
+        if _input % 4 == 0:
+            if _input % 100 == 0:
+                if _input % 400 == 0:
+                    print("윤년")
+                else:
+                    print("평년")
+            else:
+                print("윤년")
+        else:
+            print("평년")
 
 
 if __name__ == "__main__":
