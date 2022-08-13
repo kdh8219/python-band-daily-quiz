@@ -624,6 +624,95 @@ def day44():
             f'합계 :{int(-0.5*_input) if _input % 2 == 0 else int(-0.5*(_input-1))+_input}')
 
 
+def day45():
+    while True:
+        _input = input("문자하나:")
+        if _input == "":
+            break
+        _ord = ord(_input)
+        for i in range(26):
+            print(chr(_ord+i), end="")
+        print()
+
+
+def day46():
+    code = [[105, 32, 108, 111, 118, 101, 32, 121, 111,
+             117, 46], [109, 101, 32, 116, 111, 111, 46]]
+    for __ in code:
+        for text in __:
+            print(chr(text), end="")
+        print()
+
+
+def day47():
+    code = [[1, -64, 2, 15, 15, 11],
+            [-24, 5, 12, 12, 15, -64, 23, 15, 18, 12, 4, -63],
+            [-7, 15, 21, -64, 14, 5, 5, 4, -64, 16, 25, 20, 8, 15, 14, -50]]
+    for __ in code:
+        for text in __:
+            text += 96
+            print(chr(text), end="")
+        print()
+
+
+def day48():
+    f = open("msg.txt", "r")
+    fileData = []
+    while True:
+        line = f.readline()
+        if not line:
+            break
+        fileData.append(line)
+    f.close()
+    # allLine = []
+    for line in fileData:
+        thisline = []
+        for t in list(line):
+            thisline.append(ord(t)-96)
+        print(thisline)
+        # allLine.append(thisline)
+    # print(allLine)
+
+
+def day49():
+    ALPHABAT_LIST = list("ABCDEFGHIJKLMNOPQRSTUVWXYZ")
+    word = input()
+    splitedWord = list(word)
+    key = intInput("key:")
+    for t in splitedWord:
+        if t in ALPHABAT_LIST:
+            print(ALPHABAT_LIST[(ALPHABAT_LIST.index(t)+key) %
+                  len(ALPHABAT_LIST)], end="")
+        else:
+            print(t, end="")
+
+
+def day50():
+    from time import time
+    while True:
+        _input = intInput("소수 범위(100의 배수):")
+        if _input == 0:
+            break
+        if _input % 100 != 0:
+            continue
+        if _input < 0:
+            continue
+        startTime = time()
+
+        a = [False, False] + [True]*(_input-1)
+        primes = []
+        for i in range(2, _input+1):
+            if a[i]:
+                primes.append(i)
+                for j in range(2*i, _input+1, i):
+                    a[j] = False
+        endTime = time()
+
+        for i in range(10):
+            print(f'{int((_input/10)*i)} ~ {int((_input/10)*(i+1))} {(len(list(filter( lambda x:(((_input/10)*i)<=x)and(x <= ((_input/10)*(i+1))),primes))))}개 {((len(list(filter( lambda x:(((_input/10)*i)<=x)and(x <= ((_input/10)*(i+1))),primes))))/(_input/10))*100}% ')
+        print(f"{len(primes)}개 걸린시간:{endTime-startTime}")
+
+
 if __name__ == "__main__":
     try:
         date = intInput("일차 입력:", "정수만 입력하세요")
