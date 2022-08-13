@@ -1,3 +1,6 @@
+from dataclasses import replace
+
+
 def intInput(prompt: str = "", errorMessage: str = "") -> int:
     """
     :param prompt: 사용자에게 물어보는 문구
@@ -478,7 +481,10 @@ def day35():
     texts = ['Now is better than never.',
              'Life is too short, you need python.',
              'Happy python']
+    text_len = 0
+    allOfStartTime = time()
     for text in texts:
+        text_len += len(text)
         print(f">{text}")
         startTime = time()
         _input = input(">")
@@ -487,6 +493,8 @@ def day35():
             _input = input(">")
         endTime = time()
         print(f"{(len(text)/(endTime-startTime))*60}타/분")
+    allOfEndTime = time()
+    print(f"전체 {(text_len/(allOfEndTime-allOfStartTime))*60}타/분")
 
 
 def day36():
@@ -498,6 +506,18 @@ def day36():
     _list = sorted(_list.items())
     for name, score in _list:
         print(f"{name} {score}")
+
+
+def day37():
+    pList = [95, 73, 82, 83, 64, 89, 77, 48, 74, 99]
+    sList = []
+    print(f'0차 {pList}')
+    print("정렬과정")
+    for i in range(len(pList)):
+        sList.append(min(pList))
+        del pList[pList.index(min(pList))]
+        print(
+            f"{i+1}차 : {sList+pList}")
 
 
 if __name__ == "__main__":
