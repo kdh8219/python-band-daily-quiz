@@ -16,6 +16,7 @@ def intInput(prompt: str = "", errorMessage: str = "") -> int:
 
 
 def day1():
+    print("짝홀수 판독기\n\n")
     while True:
         a = intInput("정수 입력:")
         if a % 2 == 0:
@@ -25,6 +26,7 @@ def day1():
 
 
 def day2():
+    print("변수 2개 입력-> 변수 2개를 바꾸기(1).\n(a,b)=(b,a)\n\n")
     a = input()
     b = input()
     print(a+","+b)
@@ -33,6 +35,7 @@ def day2():
 
 
 def day3():
+    print("변수 2개 입력-> 변수 2개를 바꾸기(2).\nt=a,a=b,b=t,\n\n")
     a = input()
     b = input()
     print(a+","+b)
@@ -44,6 +47,7 @@ def day3():
 
 
 def day4():
+    print("숫자 입력->n x n 직각삼각형(↘)\n\n")
     while True:
         a = intInput()
         if a == 0:
@@ -53,6 +57,7 @@ def day4():
 
 
 def day5():
+    print("변수 2개 입력-> 변수 2개를 바꾸기(3).\n숫자만 가능.\nb=a+b, a=b-a, b=b-a,\n\n")
     a = intInput()
     b = intInput()
     print(str(a)+","+str(b))
@@ -63,6 +68,7 @@ def day5():
 
 
 def day6():
+    print("숫자 입력->n x n 직각삼각형(↗)\n=range reverse\n\n")
     while True:
         a = intInput()
         if a == 0:
@@ -72,6 +78,7 @@ def day6():
 
 
 def day7():
+    print("절댓값\nif사용\n\n")
     while True:
         a = intInput("정수 입력, 0입력시 종료:")
         if a == 0:
@@ -82,6 +89,7 @@ def day7():
 
 
 def day8():
+    print("숫자 입력->n x n 직각삼각형(↙)\n=space를 n-i개\n\n")
     while True:
         a = intInput("별의 개수:")
         if a == 0:
@@ -91,6 +99,7 @@ def day8():
 
 
 def day9():
+    print("절댓값\n제곱사용\n\n")
     while True:
         a = intInput("정수 입력, 0입력시 종료:")
         if a == 0:
@@ -101,6 +110,7 @@ def day9():
 
 
 def day10():
+    print("숫자 입력->n x n x n 정삼각형\n\n")
     while True:
         a = intInput("줄 수:")
         if a == 0:
@@ -110,6 +120,7 @@ def day10():
 
 
 def day11():
+    print("n~m 더하기(for)\n\n")
     start = intInput("시작수:")
     end = intInput("끝수:")
     sum = 0
@@ -119,6 +130,7 @@ def day11():
 
 
 def day12():
+    print("천만번 pass하기\n=컴 성는 테스트\n\n")
     import time as t
     startTime = t.time()  # 시작시간
     for i in range(10000000):  # 천만
@@ -129,6 +141,7 @@ def day12():
 
 
 def day13():
+    print("천만~이천만 다 더하기(알아서 알고리즘 최적화)\n=(end+start)*(((end+1)-start)/2)\n\n")
     import time as t
     startTime = t.time()  # 시작시간
     start = 10000000
@@ -142,6 +155,7 @@ def day13():
 
 
 def day14():
+    print("정수 입력-> 1~n다 더하기\n반복으로 했던데 왜 수식으로 안한지 모르겠음.\n수식으로 바꾼버전-> 14f \n\n")
     while True:
         _input = intInput("정수 n:")
         if _input == 0:
@@ -153,7 +167,18 @@ def day14():
         print(sum)
 
 
+def day14f():
+    print("정수 입력-> 1~n다 더하기\n수식으로 바꾼버전.\n\n")
+    while True:
+        _input = intInput("정수 n:")
+        if _input == 0:
+            break
+        print(int((_input/2)**2) if _input %
+              2 == 0 else (((_input + 1) / 2)**2))
+
+
 def day15():
+    print("n x n의 0~9가 반복되는 상자 생성\n\n")
     while True:
         _input = intInput("층수 n:")
         nm = 1
@@ -169,6 +194,7 @@ def day15():
 
 
 def day16():
+    print("1~n 홀수합, 짝수합, 전체합.\nfor루프 돌길래 이역시 수식으로 고침. 16f\n\n")
     while True:
         _input = intInput("정수 n:")
         if _input == 0:
@@ -185,7 +211,21 @@ def day16():
         print(f"홀수 합계:{odd}\n짝수합계:{even}\n총 합계:{all}")
 
 
+def day16f():
+    print("1~n 홀수합, 짝수합, 전체합.\n수식버전\n\n")
+    while True:
+        _input = intInput("정수 n:")
+        if _input == 0:
+            break
+        odd = int((_input/2)**2) if _input % 2 == 0 else ((((_input + 1) / 2)**2))
+        even = int(
+            ((_input/2)**2)+_input) if _input % 2 == 0 else (((((_input + 1) / 2)**2)+_input))
+        all = (_input**2+_input)/2
+        print(f"홀수 합계:{odd}\n짝수합계:{even}\n총 합계:{all}")
+
+
 def day17():
+    print("숫자 입력->n x n 직각삼각형(↘)\n근데 이제 순서대로 숫자로 채워진\n\n")
     while True:
         _input = intInput("층수 n:")
         nm = 1
@@ -203,6 +243,7 @@ def day17():
 
 
 def day18():
+    print("약수 찾기\n\n")
     while True:
         _input = intInput("정수:")
         if _input == 0:
@@ -215,10 +256,13 @@ def day18():
 
 
 def day19():
+    print("sort(),max(),min()없이 숫자 3개중 중간값 찾기\n\n")
     while True:
         try:
             a, b, c = map(int, input("정수3개 띄어쓰기로 입력: ").split())
         except:
+            break
+        if(a == b and b == c and a == 0):
             break
         if (a < b and a > c) or (a > b and a < c):
             print(a)
@@ -229,28 +273,34 @@ def day19():
 
 
 def day20():
+    print("리스트 서칭\n\n")
     wordList = ['cat', 'dog', 'pig', 'hen', 'cow', 'duck', 'cat']
     while True:
         _input = input("단어입력:")
         if _input == "\n":
             break
-        if _input in wordList:
-            print(f"{_input}은 {wordList.index(_input)+1}번째에 있다.")
+        for count, word in enumerate(wordList):
+            if _input == word:
+                print(f"{_input}은 {count+1}번째에 있다.")
 
 
 def day21():
+    print("리스트 서칭2:없으면 없다고 나옴\n\n")
     wordList = ['cat', 'dog', 'pig', 'hen', 'cow', 'duck', 'cat']
     while True:
         _input = input("단어입력:")
         if _input == "\n":
             break
-        if _input in wordList:
-            print(f"{_input}은 {wordList.index(_input)+1}번째에 있다.")
-        else:
+        if not _input in wordList:
             print(f"{_input}은 없음.")
+            continue
+        for count, word in enumerate(wordList):
+            if _input == word:
+                print(f"{_input}은 {count+1}번째에 있다.")
 
 
 def day22():
+    print("암산왕: 정수 2개랑 그 2개를 더한 수 입력, n+m=o인지 확인\n\n")
     win = 0
     lost = 0
     while True:
@@ -259,7 +309,7 @@ def day22():
         if _input1 == 0 and _input2 == 0:
             print(f"암산성적:{int(win/(win+lost)*100)}")
             break
-        answer = int(input(f"{_input1}+{_input2}="))
+        answer = intInput(f"{_input1}+{_input2}=")
         if answer == _input1+_input2:
             print("정답")
             win += 1
@@ -269,21 +319,25 @@ def day22():
 
 
 def day23():
+    print("리스트 서칭3:없는단어 추가 가능\n\n")
     wordList = []
     while True:
         _input = input("단어입력:")
         if _input == "\n":
             break
-        if _input in wordList:
-            print(f"{_input}은 {wordList.index(_input)+1}번째에 있다.")
-        else:
-            addinput = input(f"{_input}은 없음. 추가할까요?(y/n)")
-            if addinput == "y":
+        if not _input in wordList:
+            print(f"{_input}은 없음.")
+            if input(f"{_input}은 없음. 추가할까요?(y/n)") == "y":
                 wordList.append(_input)
                 print(f"{_input} 추가됨.")
+            continue
+        for count, word in enumerate(wordList):
+            if _input == word:
+                print(f"{_input}은 {count+1}번째에 있다.")
 
 
 def day24():
+    print("1억의 약수 모두 구하기\n\n")
     import time as t
     startTime = t.time()
     n = 100000000  # 1억
@@ -297,6 +351,7 @@ def day24():
 
 
 def day25():
+    print("입력의 약수 모두 구하기\n\n")
     import time as t
     _input = intInput("정수 입력:")
     startTime = t.time()
@@ -317,6 +372,7 @@ def day25():
 
 
 def day26():
+    print("dictionary자료형 서칭하기\n\n")
     myDic = {'sky': '하늘', 'apple': '사과', 'can': '깡통', 'boat': '배',
              'sea': '바다', 'smile': '미소', 'animal': '동물', 'park': '공원'}
     while True:
@@ -330,12 +386,13 @@ def day26():
 
 
 def day27():
-    import antigravity
+    print("강의 영상 보기\n\n")
     import os
     os.system("start https://youtu.be/HEMC_InYhyM")
 
 
 def day28():
+    print("소수 판독기1(for 다 돌기)\n\n")
     while True:
         _input = intInput("정수 입력:")
         if _input == 0:
@@ -352,7 +409,7 @@ def day28():
 
 
 def day29():
-    import math
+    print("소수 판독기2(제곱근 까지만 돌기)\n\n")
     import time as t
     while True:
         _input = intInput("정수 입력:")
@@ -362,7 +419,7 @@ def day29():
         if _input == 1:
             print("소수 아님")
         else:
-            for i in range(2, int(math.sqrt(_input)) + 1):
+            for i in range(2, int(_input**(1/2)) + 1):
                 if _input % i == 0:
                     print("소수 아님")
                     break
@@ -373,7 +430,7 @@ def day29():
 
 
 def day30():
-    import math
+    print("소수 판독기3(시작수~끝수)\n왜 아리스토테네스의 채로 안한걸까요🧐->30f\n\n")
     import time as t
 
     def prime(count):
@@ -382,7 +439,7 @@ def day30():
         if count == 1:
             return(False)
         else:
-            for i in range(2, int(math.sqrt(count)) + 1):
+            for i in range(2, int(count**(1/2)) + 1):
                 if count % i == 0:
                     return(False)
             else:
@@ -396,8 +453,35 @@ def day30():
     print(f"{alist.count(True)}")
     print(f"경과시간:{endTime-startTime}초")
 
+# for i in range(2, _input+1):
+#             if a[i]:
+#                 primes.append(i)
+#                 for j in range(2*i, _input+1, i):
+#                     a[j] = False
+
+
+def day30f():
+    print("소수 판독기3(시작수~끝수)\n아리스토테네스의 채\n\n")
+    import time as t
+    start = intInput("시작수:")
+    end = intInput("끝수:")
+    startTime = t.time()
+
+    a = [False, False] + [True]*(end-1)
+    primes = []
+    for i in range(2, end+1):
+        if a[i]:
+            if i >= start:
+                primes.append(i)
+            for j in range(2*i, end+1, i):
+                a[j] = False
+    endTime = t.time()
+    print(f"{len(primes)}")
+    print(f"경과시간:{endTime-startTime}초")
+
 
 def day31():
+    print("엘리베이터 등가속 운동\n\n")
     while True:
         _input = intInput("층수 입력:")
         if _input == 0:
@@ -408,8 +492,8 @@ def day31():
 
 
 def day32():
+    print("소인수 분해1\n\n")
     while True:
-
         _input = intInput('정수:', "")
         if _input == 0:
             break
@@ -430,8 +514,8 @@ def day32():
 
 
 def day33():
+    print("짭컴타자\n\n")
     from time import time
-
     text = 'Explicit is better than implicit.'
     print(f">{text}")
     startTime = time()
@@ -444,6 +528,7 @@ def day33():
 
 
 def day34():
+    print("소인수 분해2\n거듭제곱 버전\n\n")
     while True:
         _input = intInput('정수:', "")
         if _input == 0:
@@ -473,8 +558,8 @@ def day34():
 
 
 def day35():
+    print("짭컴타자 2\n\n")
     from time import time
-
     texts = ['Now is better than never.',
              'Life is too short, you need python.',
              'Happy python']
@@ -495,6 +580,7 @@ def day35():
 
 
 def day36():
+    print("key와 velue가 떨어져있는 dictionary 정렬하기\n\n")
     nameList = ['김', '이', '박', '최', '정', '강', '조', '윤', '장', '임']
     List = [95, 73, 82, 83, 64, 89, 77, 48, 74, 99]
     _list = {}
@@ -506,6 +592,7 @@ def day36():
 
 
 def day37():
+    print("선택정렬\n\n")
     pList = [95, 73, 82, 83, 64, 89, 77, 48, 74, 99]
     sList = []
     print(f'0차 {pList}')
@@ -518,6 +605,7 @@ def day37():
 
 
 def day38():
+    print("윤년/평년 계산기\n\n")
     while True:
         _input = intInput("연도:")
         if _input % 4 == 0:
@@ -533,6 +621,7 @@ def day38():
 
 
 def day39():
+    print("누진세 계산기\n\n")
     while True:
         used = intInput("사용량(kw) ")
         pay = 0
@@ -556,7 +645,7 @@ def day39():
 
 
 def day40():
-    # (n(n+1)/2)
+    print("1~n층짜리 피라미드들에 사용된 돌의 수\n1->1,2->4(1+(1+2)),3->7(1+(1+2)+(1+2+3))\n\n")
     while True:
         _input = intInput("n : ")
         if _input == 0:
@@ -569,6 +658,7 @@ def day40():
 
 
 def day41():
+    print("1+2-3+4...(1)\nfor사용\n\n")
     while True:
         _input = intInput("n : ")
         if _input == 0:
@@ -586,6 +676,7 @@ def day41():
 
 
 def day42():
+    print("1+2-3+4...(2)\n홀수합-짝수합\n\n")
     while True:
         _input = intInput("n:")
         if _input == 0:
@@ -597,10 +688,11 @@ def day42():
                 odd += i
             else:
                 even += i
-        print(f"짝수합 : {even}\n홀수합 : {odd}\n합계 : {odd}-{even}={odd-even}")
+        print(f"홀수합 : {odd}\n짝수합 : {even}\n합계 : {odd}-{even}={odd-even}")
 
 
 def day43():
+    print("1+2-3+4...(3)\nif 사용 금지\n\n")
     while True:
         _input = intInput("n : ")
         if _input == 0:
@@ -615,9 +707,10 @@ def day43():
 
 
 def day44():
+    print("1+2-3+4...(4)\n수식화\n\n")
     print('1-2+3-4+5 ... n')
     while True:
-        _input = intInput("n : ", "숫자가 아닙니다.")
+        _input = intInput("n : ")
         if _input == 0:
             break
         print(
@@ -625,6 +718,7 @@ def day44():
 
 
 def day45():
+    print("문자 하나 입력->유니코드 기준 뒤로 26글자 출력\n\n")
     while True:
         _input = input("문자하나:")
         if _input == "":
@@ -636,6 +730,7 @@ def day45():
 
 
 def day46():
+    print("암호해독(1)(숫자->유니코드)\n\n")
     code = [[105, 32, 108, 111, 118, 101, 32, 121, 111,
              117, 46], [109, 101, 32, 116, 111, 111, 46]]
     for __ in code:
@@ -645,6 +740,7 @@ def day46():
 
 
 def day47():
+    print("암호해독(2)(숫자->유니코드)\n\n")
     code = [[1, -64, 2, 15, 15, 11],
             [-24, 5, 12, 12, 15, -64, 23, 15, 18, 12, 4, -63],
             [-7, 15, 21, -64, 14, 5, 5, 4, -64, 16, 25, 20, 8, 15, 14, -50]]
@@ -656,6 +752,7 @@ def day47():
 
 
 def day48():
+    print("암호생성(msg.txt읽기->암호화 후 출력)\n\n")
     f = open("msg.txt", "r")
     fileData = []
     while True:
@@ -664,17 +761,15 @@ def day48():
             break
         fileData.append(line)
     f.close()
-    # allLine = []
     for line in fileData:
         thisline = []
         for t in list(line):
             thisline.append(ord(t)-96)
         print(thisline)
-        # allLine.append(thisline)
-    # print(allLine)
 
 
 def day49():
+    print("카이사르 암호 생성-해독기\n영어 대문자만 압력.\n\n")
     ALPHABAT_LIST = list("ABCDEFGHIJKLMNOPQRSTUVWXYZ")
     word = input()
     splitedWord = list(word)
@@ -688,6 +783,7 @@ def day49():
 
 
 def day50():
+    print("소수 분포 표현\n\n")
     from time import time
     while True:
         _input = intInput("소수 범위(100의 배수):")
@@ -709,14 +805,16 @@ def day50():
         endTime = time()
 
         for i in range(10):
-            print(f'{int((_input/10)*i)} ~ {int((_input/10)*(i+1))} {(len(list(filter( lambda x:(((_input/10)*i)<=x)and(x <= ((_input/10)*(i+1))),primes))))}개 {((len(list(filter( lambda x:(((_input/10)*i)<=x)and(x <= ((_input/10)*(i+1))),primes))))/(_input/10))*100}% ')
+            print(f'{int((_input/10)*i)} ~ {int((_input/10)*(i+1))} \
+                {(len(list(filter( lambda x:(((_input/10)*i)<=x)and(x <= ((_input/10)*(i+1))),primes))))}개 \
+                {((len(list(filter( lambda x:(((_input/10)*i)<=x)and(x <= ((_input/10)*(i+1))),primes))))/(_input/10))*100}% ')
         print(f"{len(primes)}개 걸린시간:{endTime-startTime}")
 
 
 if __name__ == "__main__":
     try:
-        date = intInput("일차 입력:", "정수만 입력하세요")
-        print(f"\n{date}일차\n\n")
-        eval(f"day{int(date)}()")
+        date = input("일차 입력:")
+        print(f"\n{date}일차\n")
+        eval(f"day{date}()")
     except KeyboardInterrupt:
         exit()
